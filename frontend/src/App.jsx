@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home.jsx";
 import Login from "./pages/login/Login.jsx";
-import SignUp from "./pages/signup/SignUp.jsx";
+import Signup from "./pages/signup/SignUp.jsx";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
 
@@ -25,7 +25,7 @@ function App() {
           />
           <Route
             path="/signup"
-            element={authUser ? <Navigate to="/" /> : <SignUp />}
+            element={authUser ? <Navigate to="/" /> : <Signup />}
           />
         </Routes>
       <Toaster />
