@@ -30,13 +30,13 @@ app.use("/api/users", userRoute);
 app.use("/api/messages", messageRoute);
 
 // Serve static files
-// const __dirname = path.resolve();
-// app.use(express.static(path.join(__dirname, "frontend", "dist")));
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 // Handle all other routes by serving index.html
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 // Start server
 server.listen(PORT, () => {
