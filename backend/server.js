@@ -12,7 +12,6 @@ import { app, server } from "./socket/socket.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-const __dirname = path.resolve();
 
 app.use(
   cors({
@@ -31,12 +30,13 @@ app.use("/api/users", userRoute);
 app.use("/api/messages", messageRoute);
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "frontend", "dist")));
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 // Handle all other routes by serving index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+// });
 
 // Start server
 server.listen(PORT, () => {
